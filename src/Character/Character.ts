@@ -79,6 +79,10 @@ export class Character {
         this.mana += manaleech;
     }
 
+    levelUp(): any { 
+        //TODO  
+    }
+
     isDead(): boolean {
         return this.currentHealth <= 0;
 

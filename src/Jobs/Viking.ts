@@ -39,6 +39,14 @@ export class Viking extends Job{
         return leech;
     }
 
-    SpecialBeforeAttackCapacity(char: Character, target: Character) {    }
-    SpecialAfterAttackCapacity(char: Character, target: Character) {    }
+    SpecialBeforeAttackCapacity(char: Character, target: Character) {  
+        if (char.level >= 3) { //Going berserk ?
+        }
+    }
+    
+    SpecialAfterAttackCapacity(char: Character, target: Character) {  
+        if (char.level >= 3) { 
+            // stop berserk capacity
+        }
+      }
 }

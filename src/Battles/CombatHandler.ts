@@ -6,9 +6,13 @@ export class CombatHandler {
     private _perso2: Character
 
     Fight() { 
+        this.perso1.onFightBeginning()//À implémenter TP J2
+        this.perso2.onFightBeginning()//À implémenter TP J2
         while (!this.perso1.isDead() && !this.perso2.isDead()) {
             this.OneTurn();
-         }
+        }
+        this.perso1.onFightEnding()//À implémenter TP J2
+        this.perso2.onFightEnding()//À implémenter TP J2
 
     }
 
@@ -33,6 +37,8 @@ export class CombatHandler {
                 if (target.isDead()) { 
                     console.log(target.nom + " est mort !")
                     console.log(perso.nom + " s'en sort vainqueur !")
+                    perso.getXppoint(target.level);//TODO 
+                    perso.fullHeal();//TODO 
                 }
 
             }
