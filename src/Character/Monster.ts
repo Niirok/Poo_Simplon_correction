@@ -1,33 +1,25 @@
 import { Character } from "./Character";
-import { MonsterFamily } from "./MonsterFamily";
+import MonsterKind from "./MonsterKind";
 
-class Monster extends Character{
-    private _monsterfam: MonsterFamily;
-    
-    constructor(monsterfam: MonsterFamily) { 
-        super("test_Name")
-        this._monsterfam = monsterfam 
+export abstract class Monster extends Character{
+    private _monsterkind: MonsterKind;
+
+    constructor(name : string, monsterkind : MonsterKind) { 
+        super(name);
+        this._monsterkind = monsterkind;     
     }
 
-    TriggerBeforeAttack(target: Character) {
-        throw new Error("Method not implemented.");
+    abstract TriggerBeforeAttack(target: Character): any
+
+    abstract TriggerAttack(target: Character, attack_result: number) : any
+
+    abstract TriggerAfterAttack(target: Character) : any
+
+    public get monsterkind(): MonsterKind {
+        return this._monsterkind;
     }
 
-    TriggerAttack(target: Character, attack_result: number) {
-        throw new Error("Method not implemented.");
+    public set monsterkind(value: MonsterKind) {
+        this._monsterkind = value;
     }
-
-    TriggerAfterAttack(target: Character) {
-        throw new Error("Method not implemented.");
-    } 
-
-    public get monsterfam(): MonsterFamily {
-        return this._monsterfam;
-    }
-
-    public set monsterfam(value: MonsterFamily) {
-        this._monsterfam = value;
-    }
-
-
 }
