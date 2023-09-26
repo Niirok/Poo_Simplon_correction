@@ -1,13 +1,7 @@
+import { Character } from "../Character/Character";
 import { Job } from "./Job";
 
 export class Knight extends Job{
-
-/*
-À la création d'un personnage chevalier,
- il recoit un nom, +40 points de vie supplémentaires,
-  +5 de force, +1 de vitesse, +1 d'intelligence,
-   5 points de mana et +3% de chance de coup critique.
-*/
 
     constructor(
         jobName : string = "Chevalier",

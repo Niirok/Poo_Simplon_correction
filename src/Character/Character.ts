@@ -1,10 +1,6 @@
-import { Job } from "../Jobs/Job";
-import { getJobFromString } from "../Jobs/misc"
-
-export class Character {
+export abstract class Character {
  
-    private _nom: string = ""
-    private _job?: Job
+    private _name: string = ""
     private _level: number = 0
     private _xpoints: number = 0
     private _maxHealth: number = 50
@@ -15,45 +11,29 @@ export class Character {
     private _mana: number = 50
     private _crithit: number = 0.02
 
-    constructor(nom: string, job: Job) {
-        this.job = job!
-        this.nom = nom
+    constructor(nom : string) {
+        this.name = nom
         this.level = 0
         this.xpoints = 0
-        this.maxHealth = 50 + this.job.bonusHealth
+        this.maxHealth = 50
         this.currentHealth = this.maxHealth 
-        this.force =  10 + this.job.bonusForce
-        this.speed =  10 + this.job.bonusSpeed
-        this.intel =  10 + this.job.bonusIntel
-        this.mana =  50 + this.job.bonusManaPx
-        this.crithit = 0.02 + this.job.bonusCritHit
-        
+        this.force =  10
+        this.speed =  10
+        this.intel =  10
+        this.mana =  50
+        this.crithit = 0.02
     }
 
-    AfterAttack(target: Character) {
-        this.TriggerAfterAttack(target);
-    }
+    abstract TriggerBeforeAttack(target: Character): any
+    
+    abstract TriggerAttack(target: Character, attack_result : number) : any
 
-    TriggerAfterAttack(target: Character) {
-        this.job.SpecialAfterAttackCapacity(this, target);
-    }
-
+    abstract TriggerAfterAttack(target: Character) : any
+    
     BeforeAttack(target: Character) {
         this.TriggerBeforeAttack(target);
     }
-    TriggerBeforeAttack(target: Character) {
-        this.job.SpecialBeforeAttackCapacity(this, target);
-    }
-
-    Attack(target: Character) : number{
-        let attack_result = this.ClassicalAttack()
-        target.currentHealth -= attack_result;
-        this.TriggerAttack(target, attack_result)
-
-        return attack_result;
-        
-    }
-
+    
     ClassicalAttack(): number {
         let dommage: number = this._force;
 
@@ -63,8 +43,16 @@ export class Character {
         return dommage;
     }
 
-    TriggerAttack(target: Character, attack_result : number) {
-        this.job.SpecialAttackCapacity(this, target, attack_result);
+    Attack(target: Character) : number{
+        let attack_result = this.ClassicalAttack()
+        target.currentHealth -= attack_result;
+        this.TriggerAttack(target, attack_result)
+
+        return attack_result;
+    }
+
+    AfterAttack(target: Character) {
+        this.TriggerAfterAttack(target);
     }
 
     Heal(regainHP: number) {
@@ -95,20 +83,13 @@ export class Character {
 | |_| |  __/ |_| ||  __/ |  \__ \ | (_| | | | | (_| | \__ \  __/ |_| ||  __/ |  \__ \
  \____|\___|\__|\__\___|_|  |___/  \__,_|_| |_|\__,_| |___/\___|\__|\__\___|_|  |___/*/
 ////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    public get nom(): string {
-        return this._nom
-    }
-    
-    public set nom(value: string) {
-        this._nom = value
+        
+    public get name(): string {
+        return this._name
     }
 
-    public get job(): Job {
-        return this._job!;
-    }
-    public set job(value: Job) {
-        this._job = value;
+    public set name(value: string) {
+        this._name = value
     }
     
     public get level(): number {
