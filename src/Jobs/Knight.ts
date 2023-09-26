@@ -14,4 +14,14 @@ export class Knight extends Job{
     ){ 
         super(jobName, bonusHealth, bonusForce, bonusSpeed, bonusIntel, bonusManaPx, bonusCritHit)
     }
+
+    SpecialBeforeAttackCapacity(char: Character, target: Character) {
+        throw new Error("Method not implemented.");
+    }
+    SpecialAttackCapacity(char: Character, target: Character, attack_result: any) {
+        throw new Error("Method not implemented.");
+    }
+    SpecialAfterAttackCapacity(char: Character, target: Character) {
+        throw new Error("Method not implemented.");
+    }
 }

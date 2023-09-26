@@ -1,11 +1,10 @@
 import { CombatHandler } from "./Battles/CombatHandler";
 import { Character } from "./Character/Character";
+import { Hero } from "./Character/Hero";
 import { Viking } from "./Jobs/Viking";
 
-let toto = new Viking()
-
-let Anthony = new Character("Anthony", toto);
-let mechant = new Character("Le Vile-Brequin", toto)
+let Anthony = new Hero("Anthony", new Viking());
+let mechant = new Hero("Le Vile-Brequin", new Viking())
 
 console.log(Anthony)
 console.log(mechant)
