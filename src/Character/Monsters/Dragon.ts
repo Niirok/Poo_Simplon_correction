@@ -1,4 +1,4 @@
-import { Character } from "./Character";
+import { Character } from "../Character";
 import { DragonKind } from "./DragonKind";
 
 export class Dragon extends DragonKind {

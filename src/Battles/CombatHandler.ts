@@ -15,14 +15,23 @@ export class CombatHandler {
         this._perso2 = p2;
     }
 
-    Fight() { 
+    Fight(): Character { 
+        let vainqueur 
+
         //this.perso1.onFightBeginning()//À implémenter TP J2
         //this.perso2.onFightBeginning()//À implémenter TP J2
         while (!this.perso1.isDead() && !this.perso2.isDead()) {
             this.OneTurn();
         }
+
+        if (this.perso1.currentHealth == 0) {
+            vainqueur = this.perso2
+        } else { 
+            vainqueur = this.perso1
+        }
         //this.perso1.onFightEnding()//À implémenter TP J2
         //this.perso2.onFightEnding()//À implémenter TP J2
+        return vainqueur;  
 
     }
 

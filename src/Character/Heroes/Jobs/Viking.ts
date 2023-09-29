@@ -38,6 +38,7 @@ export class Viking extends Job{
         console.log("Le coup de Hache absorbe la vie de l'adversaire, "+ leech + " points de vie sont volés")
         return leech;
     }
+    
 
     SpecialBeforeAttackCapacity(char: Character, target: Character) {  
         if (char.level >= 3) { //Going berserk ?

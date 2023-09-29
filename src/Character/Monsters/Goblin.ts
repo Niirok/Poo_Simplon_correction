@@ -1,4 +1,4 @@
-import { Character } from "./Character";
+import { Character } from "../Character";
 import { GoblinKind } from "./GoblinKind";
 
 export class Gobelin extends GoblinKind {

@@ -1,4 +1,4 @@
-import { Character } from "./Character";
+import { Character } from "../Character";
 import MonsterKind from "./MonsterKind";
 
 export abstract class Monster extends Character{

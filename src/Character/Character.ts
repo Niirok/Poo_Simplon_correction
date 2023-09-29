@@ -75,6 +75,10 @@ export abstract class Character {
         return this.currentHealth <= 0;
 
     }
+
+    utilise(obj:IObjet) {
+        obj.use();
+    }
  /* 
 ////////////////////////////////////////////////////////////////////////////////////////////////
   ____      _   _                                  _            _   _                

@@ -1,4 +1,4 @@
-import { Character } from "../Character/Character";
+import { Character } from "../../Character";
 import { Job } from "./Job";
 
 export class Archer extends Job{

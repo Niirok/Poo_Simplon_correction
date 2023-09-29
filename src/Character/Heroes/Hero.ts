@@ -1,5 +1,5 @@
-import { Job } from "../Jobs/Job";
-import { Character } from "./Character";
+import { Job } from "../Heroes/Jobs/Job"
+import { Character } from "../Character";
 
 export class Hero extends Character {
 
