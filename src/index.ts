@@ -16,4 +16,9 @@ FightManager.OneTurn();
 
 let gagnant: Character = FightManager.Fight();
 
+console.log("Santé actuelle du vainqueur " + gagnant.currentHealth)
+
 gagnant.utilise(new Potion(1, 1, "de Vie Mineure", potEffect.life, potPower.feeble))
+
+console.log("Santé actuelle du vainqueur " + gagnant.currentHealth+ " Après avoir bu une petite potion de vie")
+

@@ -1,3 +1,6 @@
+import { Character } from "../Character/Character";
+import { IObjet } from "./IObjet";
+
 abstract class Equipement implements IObjet {
     
     private _prix: number;
@@ -6,11 +9,11 @@ abstract class Equipement implements IObjet {
     private _name: string;
 
 
-    abstract equip() : any
+    abstract equip(personnage : Character) : any
 
-    use(): any {
-        this.equip();
-        console.log()
+    use(personnage : Character): any {
+        this.equip(personnage);
+        console.log("L'objet est équipé")
     }
 
     constructor(prix : number, poids : number, level : number, name : string) { 

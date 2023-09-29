@@ -1,3 +1,4 @@
+import { ICharacter } from "../Character/ICharacter";
 import { Consommable } from "./Consommable";
 
 export class Potion extends Consommable {
@@ -12,11 +13,26 @@ export class Potion extends Consommable {
         this._power = pow;
     }
 
-    use() {
-        super.use()
+    use(personnage : ICharacter) {
+        super.use(personnage)
     }
     
-    consume() {
+    consume(personnage : ICharacter) {
+        switch(this._effect) { 
+            case potEffect.life: { 
+                personnage.Heal(this._power); 
+                break; 
+            } 
+            case potEffect.mana: { 
+                personnage.AbsorbMana(this._power);
+                break; 
+            } 
+            default: { 
+                console.log("Le type de potion n'existe pas")
+            break; 
+            } 
+        } 
+
         console.log("La potion a été bue !")
     }
 

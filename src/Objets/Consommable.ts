@@ -1,13 +1,16 @@
+import { ICharacter } from "../Character/ICharacter";
+import { IObjet } from "./IObjet";
+
 export abstract class Consommable implements IObjet {
     private _prix: number;
     private _poids: number;
     private _name: string;
 
-    use() { 
-        this.consume();
+    use(perso : ICharacter) { 
+        this.consume(perso);
     }
 
-    abstract consume() : any
+    abstract consume(personnage : ICharacter) : void
     
     constructor(prix : number, poids : number, name : string) {
         this._prix = prix;

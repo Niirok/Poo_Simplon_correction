@@ -1,4 +1,7 @@
-export abstract class Character {
+import { IObjet } from "../Objets/IObjet"
+import { ICharacter } from "./ICharacter"
+
+export abstract class Character implements ICharacter{
  
     private _name: string = ""
     private _level: number = 0
@@ -77,7 +80,7 @@ export abstract class Character {
     }
 
     utilise(obj:IObjet) {
-        obj.use();
+        obj.use(this);
     }
  /* 
 ////////////////////////////////////////////////////////////////////////////////////////////////
